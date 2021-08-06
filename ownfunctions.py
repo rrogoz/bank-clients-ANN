@@ -16,7 +16,7 @@ def one_hot_dummies(df: pd.DataFrame, names: list, drop: bool = True) -> pd.Data
     dfCopy = df.copy()
     for name in names:
         oneHotDummies = pd.get_dummies(dfCopy[name], drop_first=drop)
-        # putting newly created dummies
+        # putting newly created dummies in place of name column
         indexOneHotPaste = dfCopy.columns.get_loc(name)
         for columns in oneHotDummies:
             dfCopy[columns] = oneHotDummies[columns]
